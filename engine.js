@@ -8,17 +8,13 @@ document.addEventListener("keydown", teclaPressionada);
 
 secretWord = "TESTE";
 
+// Retorna verdadeiro se o caracter pressionado é 
+// um código entre a letra A e a letra Z.
 function isCaracter(keyCaracter) {
   return keyCaracter >=65 && keyCaracter <= 90;
 }
 
 function teclaPressionada(evento) {
-  //   if (!evento.keyCode) {
-  //     console.log(`Clicou em ${evento.target.id}`);
-  //   } else {
-  //     console.log(`Apertou a tecla ${evento.key} de código ${evento.keyCode} `);
-  //   }
-
   // Verifica qual dos dos dois eventos foi utilizado:
   // tecla pressioada ou click em um botão.
   // E retorna o código da tecla ou botão clicado.
@@ -28,12 +24,9 @@ function teclaPressionada(evento) {
   // Verifica se o código do evento é um caracter válido.
   if (isCaracter(keyPressClick)) {
 
-    // Verifica qual dos dois eventos foi utilizado.
-    // O que retorna null/undefine é ignorado.
-    let letra = evento.key ?? String.fromCharCode(evento.target.id);
-
-    // Converte para maíuscula a letra clicada ou digitada
-    letra = letra.toUpperCase();
+    // Converte códgo para caracter e
+    // converte para maíuscula a letra clicada ou digitada.
+    const letra = String.fromCharCode(keyPressClick).toUpperCase();
 
     // Verifica se a letra clicada/pressionada esta na palavra secreta.
     if (secretWord.includes(letra)) {
