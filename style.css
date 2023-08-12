@@ -1,3 +1,66 @@
-<!-- Jogo da Forca
+/*  
+Jogo da Forca
 Projeto SantanderCoders - Logica de Programação <I>
-Professora Jaque -->
+Professora Jaque
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    max-width: 100vw;
+    max-height: 100vh;
+    position: absolute;
+    border: 1px solid;
+}
+
+:root {
+    --width-button: 74px;
+    --height-button: 40px;
+    --space-line-keys: 20px;
+
+}
+
+.forca {
+    margin-top: 29px;
+    margin-left: 53px;
+    min-width: 327px;
+    min-height: 335px;
+    background-color: #D9D9D9;
+}
+
+/* 
+TODO: Ajustar a altura do teclado!
+ */
+.teclado {
+    margin-top: 400px;
+    margin-left: 279px;
+    min-width: 779px;
+    min-height: 198px;
+}
+
+.teclasLinha0 {
+    position: relative;
+    min-width: 779px;
+    min-height: var(--height-button);
+}
+
+.teclas{
+    position: relative;
+    width: var(--width-button);
+    height: var(--height-button);
+}
+
+.teclasLinha1 {
+    position: relative;
+    margin-top: var(--space-line-keys);
+    min-width: 779px;
+    min-height: var(--height-button);
+}
+
+.teclasLinha2 {
+    position: relative;
+    margin-top: var(--space-line-keys);
+    min-width: 779px;
+    min-height: var(--height-button);
+}

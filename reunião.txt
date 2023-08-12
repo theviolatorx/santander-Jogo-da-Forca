@@ -1,1 +1,3 @@
 Sorteio dos temas e depois de cada palavra!
+
+https://codesandbox.io/s/video-jogo-da-forca-forked-scsnqs?file=/script.js:479-488
