@@ -29,8 +29,26 @@ Professora Jaque
     background-color: #D9D9D9;
 }
 
+.palavraSecreta {
+    display: flex;
+    margin-top: 324px;
+    margin-left: 390px;
+    min-width: 711px;
+    min-height: var(--height-button);
+    gap: 5px;
+}
+
+.cps1, .cps2, .cps3, .cps4, .cps5, .cps6, .cps7, .cps8, .cps9 {
+    position: relative;
+    min-width: var(--width-button);
+    max-height: var(--height-button);
+    text-align: center;
+    font-size: 2rem;
+}
+
 /* 
 TODO: Ajustar a altura do teclado!
+TODO: Ajustar a centralização das teclas nas linhas
  */
 .teclado {
     margin-top: 400px;
@@ -63,4 +81,8 @@ TODO: Ajustar a altura do teclado!
     margin-top: var(--space-line-keys);
     min-width: 779px;
     min-height: var(--height-button);
+}
+
+.ocultar{
+    display: none;
 }

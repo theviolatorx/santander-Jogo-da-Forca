@@ -3,18 +3,25 @@ const keyboard = document.getElementById("teclado");
 const rightword = [];
 const wrongword = [];
 
-keyboard.addEventListener("click", teclaPressionada);
-document.addEventListener("keydown", teclaPressionada);
+keyboard.addEventListener("click", keyPressOrclick);
+document.addEventListener("keydown", keyPressOrclick);
 
 secretWord = "TESTE";
+lenSecretWord = secretWord.length;
+window.addEventListener("load", (event) => {
+  console.log("page is fully loaded");
+  const eraseSpace = 9 - lenSecretWord;
+  console.log("*"+eraseSpace);
+  if (eraseSpace > 0){
+    for(let i = lenSecretWord + 1; i <= 9; i++) {
+      console.log(i);
+      addClass("cps"+i, 'ocultar');
+    }
+  }
+});
 
-// Retorna verdadeiro se o caracter pressionado é 
-// um código entre a letra A e a letra Z.
-function isCaracter(keyCaracter) {
-  return keyCaracter >=65 && keyCaracter <= 90;
-}
 
-function teclaPressionada(evento) {
+function keyPressOrclick(evento) {
   // Verifica qual dos dos dois eventos foi utilizado:
   // tecla pressioada ou click em um botão.
   // E retorna o código da tecla ou botão clicado.
@@ -51,3 +58,30 @@ function teclaPressionada(evento) {
   }
 }
 
+// Retorna verdadeiro se o caracter pressionado é 
+// um código entre a letra A e a letra Z.
+function isCaracter(keyCaracter) {
+  return keyCaracter >=65 && keyCaracter <= 90;
+}
+
+function addClass(id, classe) {
+  const elemento = document.getElementById(id);
+  const classes = elemento.className.split(' ');
+  const getIndex = classes.indexOf(classe);
+
+  if (getIndex === -1) {
+    classes.push(classe);
+    elemento.className = classes.join(' ');
+  }
+}
+
+function delClass(id, classe) {
+  var elemento = document.getElementById(id);
+  var classes = elemento.className.split(' ');
+  var getIndex = classes.indexOf(classe);
+
+  if (getIndex > -1) {
+    classes.splice(getIndex, 1);
+  }
+  elemento.className = classes.join(' ');
+}
