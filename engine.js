@@ -1,20 +1,22 @@
 const keyboard = document.getElementById("teclado");
 
-const rightword = [];
-const wrongword = [];
-
 keyboard.addEventListener("click", keyPressOrclick);
 document.addEventListener("keydown", keyPressOrclick);
 
-secretWord = "TESTE";
-lenSecretWord = secretWord.length;
+let gameOver = false;
+let tentativas = 0;
+const rightletter = [];
+const wrongletter = [];
+// Palavra secreta
+const secretWord = "CASA";
+const lenSecretWord = secretWord.length;
+
 window.addEventListener("load", (event) => {
-  console.log("page is fully loaded");
+  
   const eraseSpace = 9 - lenSecretWord;
-  console.log("*"+eraseSpace);
+  
   if (eraseSpace > 0){
     for(let i = lenSecretWord + 1; i <= 9; i++) {
-      console.log(i);
       addClass("cps"+i, 'ocultar');
     }
   }
@@ -22,6 +24,7 @@ window.addEventListener("load", (event) => {
 
 
 function keyPressOrclick(evento) {
+  
   // Verifica qual dos dos dois eventos foi utilizado:
   // tecla pressioada ou click em um botão.
   // E retorna o código da tecla ou botão clicado.
@@ -30,6 +33,7 @@ function keyPressOrclick(evento) {
 
   // Verifica se o código do evento é um caracter válido.
   if (isCaracter(keyPressClick)) {
+   
 
     // Converte códgo para caracter e
     // converte para maíuscula a letra clicada ou digitada.
@@ -39,29 +43,87 @@ function keyPressOrclick(evento) {
     if (secretWord.includes(letra)) {
       // Verifica se a letra correta esta inclusa na relação de palabras corretas.
       // Caso já esteja, não adiciona novamente a mesma letra.
-      if (!rightword.includes(letra)) {
+      if (!rightletter.includes(letra)) {
         // Caso a letra não esteja na lista de palavras corretas,
         // a mesma é adicionada.
-        rightword.push(letra);
-        console.log("Letra Correta: " + rightword);
+        rightletter.push(letra);
+        showRightWord(secretWord, letra);
+        console.log("Letra Correta: " + rightletter);
+        gameOver = acertou(secretWord, rightletter);
       }
     } else {
       // Verifica se a letra errada esta inclusa na relação de palabras erradas.
       // Caso já esteja, não adiciona novamente a mesma letra.
-      if (!wrongword.includes(letra)) {
+      if (!wrongletter.includes(letra)) {
+        gameOver = errou(tentativas);
+        showWrongWord(letra);
         // Caso a letra não esteja na lista de palavras erradas,
         // a mesma é adicionada.
-        wrongword.push(letra);
-        console.log("Letra Errada: " + wrongword);
+        wrongletter.push(letra);
+        console.log("Letra Errada: " + wrongletter);
       }
     }
   }
+  gameOverForca();
+  
 }
 
 // Retorna verdadeiro se o caracter pressionado é 
 // um código entre a letra A e a letra Z.
 function isCaracter(keyCaracter) {
   return keyCaracter >=65 && keyCaracter <= 90;
+}
+
+function showRightWord(array, letter){
+  array = array.split("");
+  array.forEach(function(element, index, array) {
+    if (element === letter){
+      const posLetter = document.getElementById("cps"+(index + 1));
+      posLetter.innerHTML = letter;
+    }
+  });
+}
+
+function showWrongWord(letter){
+  console.log(tentativas);
+  const posLetter = document.getElementById("cpse"+tentativas);
+  posLetter.innerHTML = letter;
+
+}
+
+function gameOverForca(){
+  console.log(gameOver);
+  console.log(`Gameover: ${gameOver} / Tentativas: ${tentativas}`);
+  if (gameOver && tentativas < 6) {
+    alert("Jogo Acabou! Você ganhou!");
+  } else if (gameOver && tentativas >=6) {
+    alert("Jogo Acabou! Você perdeu!")
+  }
+}
+
+function acertou(array1, array2){
+  let acc = 0;
+  array1 = array1.split("");
+  
+  array2.forEach((element1) =>{
+    array1.forEach((element2) => {
+    if (element2 === element1) {
+      acc++;
+    }
+    });
+  });
+  if (acc >= array1.length) {
+    return true;
+  }
+  return false;
+}
+
+function errou() {
+  tentativas++;
+  if (tentativas >= 6) {
+    return true;
+  }
+  return false;
 }
 
 function addClass(id, classe) {
