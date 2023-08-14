@@ -8,20 +8,18 @@ let tentativas = 0;
 const rightletter = [];
 const wrongletter = [];
 // Palavra secreta
-const secretWord = "CASA";
+const secretWord = "TESTADA";
 const lenSecretWord = secretWord.length;
 
-window.addEventListener("load", (event) => {
-  
-  const eraseSpace = 9 - lenSecretWord;
-  
-  if (eraseSpace > 0){
-    for(let i = lenSecretWord + 1; i <= 9; i++) {
-      addClass("cps"+i, 'ocultar');
-    }
-  }
-});
 
+const eraseSpace = 9 - lenSecretWord;  
+if (eraseSpace > 0){
+  for(let i = lenSecretWord + 1; i <= 9; i++) {
+    addClass("cps"+i, 'ocultar');
+  }
+}
+
+let intervalID = window.setInterval(gameOverForca, 10);
 
 function keyPressOrclick(evento) {
   
@@ -64,8 +62,7 @@ function keyPressOrclick(evento) {
       }
     }
   }
-  gameOverForca();
-  
+  // gameOverForca();
 }
 
 // Retorna verdadeiro se o caracter pressionado é 
@@ -96,8 +93,10 @@ function gameOverForca(){
   console.log(`Gameover: ${gameOver} / Tentativas: ${tentativas}`);
   if (gameOver && tentativas < 6) {
     alert("Jogo Acabou! Você ganhou!");
+    clearInterval(intervalID);
   } else if (gameOver && tentativas >=6) {
     alert("Jogo Acabou! Você perdeu!")
+    clearInterval(intervalID);
   }
 }
 
