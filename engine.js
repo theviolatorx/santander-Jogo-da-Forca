@@ -1,3 +1,7 @@
+window.onload = (event) => {
+  console.log("Página carregou");
+}
+
 const keyboard = document.getElementById("teclado");
 
 keyboard.addEventListener("click", keyPressOrclick);
@@ -89,14 +93,14 @@ function showWrongWord(letter){
 }
 
 function gameOverForca(){
-  console.log(gameOver);
-  console.log(`Gameover: ${gameOver} / Tentativas: ${tentativas}`);
   if (gameOver && tentativas < 6) {
     alert("Jogo Acabou! Você ganhou!");
     clearInterval(intervalID);
+    location.reload();
   } else if (gameOver && tentativas >=6) {
     alert("Jogo Acabou! Você perdeu!")
     clearInterval(intervalID);
+    location.reload();
   }
 }
 
