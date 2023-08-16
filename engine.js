@@ -1,3 +1,15 @@
+/*
+{
+  Programa: "Jogo da Força",
+  Versao: "1.0.0"
+  Desenvolvedor: [
+    "Thalia",
+    "Clóvis",
+  ]
+
+*/
+
+// 
 const keyboard = document.getElementById("teclado");
 const tipText = document.getElementById("tips");
 
@@ -168,8 +180,18 @@ if (eraseSpace > 0) {
   }
 }
 
+
 let intervalID = window.setInterval(gameOverForca, 10);
 
+/*
+* Função para verificar os eventos de teclado e mouse.
+* 
+* @example
+*   keyPressOrclick(event)
+
+* @param {event} [opcional]   Tipo do evento.
+* @return {undefined}         Essa função retorna undefined
+*/
 function keyPressOrclick(evento) {
   // Verifica qual dos dos dois eventos foi utilizado:
   // tecla pressioada ou click em um botão.
@@ -210,12 +232,29 @@ function keyPressOrclick(evento) {
   // gameOverForca();
 }
 
-// Retorna verdadeiro se o caracter pressionado é
-// um código entre a letra A e a letra Z.
+/*
+* Retorna verdadeiro se o caracter pressionado é um código entre a letra A e a letra Z.
+* 
+* @example
+*   isCaracter(68); // true 
+
+* @param  {number}  obrigatório   Tipo do evento.
+* @return {boolean}               retorna true se o código do caracter estiver entre 65 e 90, caso contrário retorna false
+*/
 function isCaracter(keyCaracter) {
   return keyCaracter >= 65 && keyCaracter <= 90;
 }
 
+/* 
+* Exibe os caracteres que existem na palavra secreta
+*
+* @example
+*   showRightWord("TESTE","S");
+*
+* @param {text}   obrigatório   Palavra secreta
+* @param {text}   obrigatório   Letra a ser localizada na palavra secreta
+* @return {undefined}           Essa função retorna undefined
+*/
 function showRightWord(array, letter) {
   array = array.split("");
   array.forEach(function (element, index, array) {
@@ -226,11 +265,29 @@ function showRightWord(array, letter) {
   });
 }
 
+/* 
+* Exibe os caracteres que não existem na palavra secreta
+*
+* @example
+*   showRightWord("TESTE","X");
+*
+* @param {text}   obrigatório   Palavra secreta
+* @param {text}   obrigatório   Letra a ser localizada na palavra secreta
+* @return {undefined}           Essa função retorna undefined
+*/
 function showWrongWord(letter) {
   const posLetter = document.getElementById("cpse" + tentativas);
   posLetter.innerHTML = letter;
 }
 
+/* Verifica se o jogo finalizado ou não!
+*
+* @example
+*   gameOverForca();
+*
+* @param {}   Não precisa de argumentos
+* @return {undefined}  Essa função retorna undefined
+*/
 function gameOverForca() {
   if (gameOver && tentativas < 6) {
     alert("Jogo Acabou! Você ganhou!");
@@ -243,6 +300,17 @@ function gameOverForca() {
   }
 }
 
+/* 
+* Verifica se o usuário acertou a palavra secreta.
+* Retorna True caso tenha acertado e False caso não tenha acertado
+*
+* @example
+*   acertou("TESTE","TESTE"); // true
+*
+* @param {text}         obrigatório   Palavra secreta
+* @param {array}        obrigatório   Array com todas as letras corretas digitadas pelo usuário
+* @return {true/false}                Essa função retorna true ou false
+*/
 function acertou(array1, array2) {
   let acc = 0;
   array1 = array1.split("");
@@ -260,6 +328,17 @@ function acertou(array1, array2) {
   return false;
 }
 
+/* 
+* Soma mais 01 nas tentativas erradas do usuário e verifica a quantidade de erros do usuário.
+* Retorna True caso o número de erros seja maior ou igual a 6
+* Retorna True caso o número de erros seja menor que 6
+*
+* @example
+*   errou(); // true/false
+*
+* @param {null}         Sem parametros
+* @return {true/false}  Essa função retorna true ou false
+*/
 function errou() {
   tentativas++;
   if (tentativas >= 6) {
@@ -268,6 +347,16 @@ function errou() {
   return false;
 }
 
+/* 
+* Adiciona uma classe a um element html.
+*
+* @example
+*   addClass("tecla","corCorta");
+*
+* @param {id}           Informe o id do elemento html
+* @param {classe}       Informe a classe que deseja inserir no element html
+* @return {undefined}  Essa função retorna undefined
+*/
 function addClass(id, classe) {
   const elemento = document.getElementById(id);
   const classes = elemento.className.split(" ");
@@ -279,6 +368,16 @@ function addClass(id, classe) {
   }
 }
 
+/* 
+* Remove uma classe de um element html.
+*
+* @example
+*   delClass("tecla","corCorta");
+*
+* @param {id}           Informe o id do elemento html
+* @param {classe}       Informe a classe que deseja inserir no element html
+* @return {undefined}  Essa função retorna undefined
+*/
 function delClass(id, classe) {
   var elemento = document.getElementById(id);
   var classes = elemento.className.split(" ");
