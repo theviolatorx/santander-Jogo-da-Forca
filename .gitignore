@@ -1,8 +1,12 @@
 *.txt
 *.rar
 <<<<<<< HEAD
+<<<<<<< HEAD
 h origin 1.0.*
 foto-tela-01.jpg
 =======
 h*
 >>>>>>> 8090ddb (update gitignore)
+=======
+h*
+>>>>>>> 602918b (update gitignore)
