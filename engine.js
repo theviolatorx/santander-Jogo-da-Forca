@@ -9,17 +9,28 @@
 
 */
 
-// 
+//
 const keyboard = document.getElementById("teclado");
 const tipText = document.getElementById("tips");
+const splashAndGo = document.getElementById("splash");
+const playAgain = document.getElementById("win-lose");
 
 keyboard.addEventListener("click", keyPressOrclick);
 document.addEventListener("keydown", keyPressOrclick);
+splashAndGo.addEventListener("click", iniciarJogo);
+playAgain.addEventListener("click", iniciarJogo);
 
 let gameOver = false;
 let tentativas = 0;
-const rightletter = [];
-const wrongletter = [];
+let rightletter = [];
+let wrongletter = [];
+let categoria_dicas;
+let palavra;
+let secretWord;
+let tip;
+let lenSecretWord;
+let mensagem;
+let intervalID;
 
 // Palavra secreta
 const categorias = [
@@ -31,7 +42,7 @@ const categorias = [
   "FABRICANTES DE CELULAR",
   "FRUTAS",
   "CLIMA E TEMPO",
-  "MEIOS DE TRANSPORTES"
+  "MEIOS DE TRANSPORTES",
 ];
 const dicas = [
   "Cidades do litorial Sul de São Paulo",
@@ -45,12 +56,7 @@ const dicas = [
   "Meios de Transportes",
 ];
 const palavras = {
-  CIDADES: [
-    "SANTOS",
-    "PERUIBE",
-    "MONGAGUA",
-    "ITANHAEM",
-  ],
+  CIDADES: ["SANTOS", "PERUIBE", "MONGAGUA", "ITANHAEM"],
   LINGUAGENS: [
     "CLIPPER",
     "BASIC",
@@ -61,13 +67,7 @@ const palavras = {
     "ALGOL",
     "AUTOCODE",
   ],
-  ANIMAIS: [
-    "CACHORRO",
-    "GATO",
-    "CAVALO",
-    "OVELHA",
-    "PORCO",
-  ],
+  ANIMAIS: ["CACHORRO", "GATO", "CAVALO", "OVELHA", "PORCO"],
   CRANIANA: [
     "FRONTAL",
     "ESFENOIDE",
@@ -161,28 +161,6 @@ const palavras = {
   ],
 };
 
-const categoria_dicas = Math.floor(Math.random() * (categorias.length + 1));
-const palavra = Math.floor(
-  Math.random() * (palavras[categorias[categoria_dicas]].length + 1)
-);
-
-const secretWord = palavras[categorias[categoria_dicas]][palavra];
-const tip = dicas[categoria_dicas];
-
-tipText.innerHTML = "Dica: " + tip;
-
-const lenSecretWord = secretWord.length;
-
-const eraseSpace = 9 - lenSecretWord;
-if (eraseSpace > 0) {
-  for (let i = lenSecretWord + 1; i <= 9; i++) {
-    addClass("cps" + i, "ocultar");
-  }
-}
-
-
-let intervalID = window.setInterval(gameOverForca, 10);
-
 /*
 * Função para verificar os eventos de teclado e mouse.
 * 
@@ -232,7 +210,7 @@ function keyPressOrclick(evento) {
           // Torna a parte da forca visível definindo o estilo "display" como "block"
           hangingPart.style.display = "block";
         }
-        gameOver = errou(tentativas);
+        gameOver = errou();
         showWrongWord(letra);
         addClass(keyPressClick, "corErrada");
       }
@@ -254,16 +232,16 @@ function isCaracter(keyCaracter) {
   return keyCaracter >= 65 && keyCaracter <= 90;
 }
 
-/* 
-* Exibe os caracteres que existem na palavra secreta
-*
-* @example
-*   showRightWord("TESTE","S");
-*
-* @param {text}   obrigatório   Palavra secreta
-* @param {text}   obrigatório   Letra a ser localizada na palavra secreta
-* @return {undefined}           Essa função retorna undefined
-*/
+/*
+ * Exibe os caracteres que existem na palavra secreta
+ *
+ * @example
+ *   showRightWord("TESTE","S");
+ *
+ * @param {text}   obrigatório   Palavra secreta
+ * @param {text}   obrigatório   Letra a ser localizada na palavra secreta
+ * @return {undefined}           Essa função retorna undefined
+ */
 function showRightWord(array, letter) {
   array = array.split("");
   array.forEach(function (element, index, array) {
@@ -274,52 +252,56 @@ function showRightWord(array, letter) {
   });
 }
 
-/* 
-* Exibe os caracteres que não existem na palavra secreta
-*
-* @example
-*   showRightWord("TESTE","X");
-*
-* @param {text}   obrigatório   Palavra secreta
-* @param {text}   obrigatório   Letra a ser localizada na palavra secreta
-* @return {undefined}           Essa função retorna undefined
-*/
+/*
+ * Exibe os caracteres que não existem na palavra secreta
+ *
+ * @example
+ *   showRightWord("TESTE","X");
+ *
+ * @param {text}   obrigatório   Palavra secreta
+ * @param {text}   obrigatório   Letra a ser localizada na palavra secreta
+ * @return {undefined}           Essa função retorna undefined
+ */
 function showWrongWord(letter) {
   const posLetter = document.getElementById("cpse" + tentativas);
   posLetter.innerHTML = letter;
 }
 
 /* Verifica se o jogo finalizado ou não!
-*
-* @example
-*   gameOverForca();
-*
-* @param {}   Não precisa de argumentos
-* @return {undefined}  Essa função retorna undefined
-*/
+ *
+ * @example
+ *   gameOverForca();
+ *
+ * @param {}   Não precisa de argumentos
+ * @return {undefined}  Essa função retorna undefined
+ */
 function gameOverForca() {
   if (gameOver && tentativas < 6) {
-    alert("Jogo Acabou! Você ganhou!");
-    clearInterval(intervalID);
-    location.reload();
+    mensagem = `<h1 class='titulo-do-jogo'>VOCÊ GANHOU!</h1><p>CLIQUE E CONTINUE JOGANDO</p>`;
+    exibeTelaFimJogo(mensagem);
   } else if (gameOver && tentativas >= 6) {
-    alert(`Jogo Acabou! Você perdeu!\nA palavra secreta é: ${secretWord}`);
-    clearInterval(intervalID);
-    location.reload();
+    mensagem = `<h1 class='titulo-do-jogo'>VOCÊ PERDEU!</h1><p>A palavra secreta é: ${secretWord}</p>`;
+    exibeTelaFimJogo(mensagem);
   }
 }
 
-/* 
-* Verifica se o usuário acertou a palavra secreta.
-* Retorna True caso tenha acertado e False caso não tenha acertado
-*
-* @example
-*   acertou("TESTE","TESTE"); // true
-*
-* @param {text}         obrigatório   Palavra secreta
-* @param {array}        obrigatório   Array com todas as letras corretas digitadas pelo usuário
-* @return {true/false}                Essa função retorna true ou false
-*/
+function exibeTelaFimJogo(msg) {
+  playAgain.innerHTML = mensagem;
+  clearInterval(intervalID);
+  addClass("container", "ocultar");
+  delClass("win-lose", "ocultar");
+}
+/*
+ * Verifica se o usuário acertou a palavra secreta.
+ * Retorna True caso tenha acertado e False caso não tenha acertado
+ *
+ * @example
+ *   acertou("TESTE","TESTE"); // true
+ *
+ * @param {text}         obrigatório   Palavra secreta
+ * @param {array}        obrigatório   Array com todas as letras corretas digitadas pelo usuário
+ * @return {true/false}                Essa função retorna true ou false
+ */
 function acertou(array1, array2) {
   let acc = 0;
   array1 = array1.split("");
@@ -337,35 +319,36 @@ function acertou(array1, array2) {
   return false;
 }
 
-/* 
-* Soma mais 01 nas tentativas erradas do usuário e verifica a quantidade de erros do usuário.
-* Retorna True caso o número de erros seja maior ou igual a 6
-* Retorna True caso o número de erros seja menor que 6
-*
-* @example
-*   errou(); // true/false
-*
-* @param {null}         Sem parametros
-* @return {true/false}  Essa função retorna true ou false
-*/
+/*
+ * Soma mais 01 nas tentativas erradas do usuário e verifica a quantidade de erros do usuário.
+ * Retorna True caso o número de erros seja maior ou igual a 6
+ * Retorna True caso o número de erros seja menor que 6
+ *
+ * @example
+ *   errou(); // true/false
+ *
+ * @param {null}         Sem parametros
+ * @return {true/false}  Essa função retorna true ou false
+ */
 function errou() {
   tentativas++;
+  console.log(`Errou: ${tentativas}`);
   if (tentativas >= 6) {
     return true;
   }
   return false;
 }
 
-/* 
-* Adiciona uma classe a um element html.
-*
-* @example
-*   addClass("tecla","corCorta");
-*
-* @param {id}           Informe o id do elemento html
-* @param {classe}       Informe a classe que deseja inserir no element html
-* @return {undefined}  Essa função retorna undefined
-*/
+/*
+ * Adiciona uma classe a um element html.
+ *
+ * @example
+ *   addClass("tecla","corCorta");
+ *
+ * @param {id}           Informe o id do elemento html
+ * @param {classe}       Informe a classe que deseja inserir no element html
+ * @return {undefined}  Essa função retorna undefined
+ */
 function addClass(id, classe) {
   const elemento = document.getElementById(id);
   const classes = elemento.className.split(" ");
@@ -377,16 +360,16 @@ function addClass(id, classe) {
   }
 }
 
-/* 
-* Remove uma classe de um element html.
-*
-* @example
-*   delClass("tecla","corCorta");
-*
-* @param {id}           Informe o id do elemento html
-* @param {classe}       Informe a classe que deseja inserir no element html
-* @return {undefined}  Essa função retorna undefined
-*/
+/*
+ * Remove uma classe de um element html.
+ *
+ * @example
+ *   delClass("tecla","corCorta");
+ *
+ * @param {id}           Informe o id do elemento html
+ * @param {classe}       Informe a classe que deseja inserir no element html
+ * @return {undefined}  Essa função retorna undefined
+ */
 function delClass(id, classe) {
   var elemento = document.getElementById(id);
   var classes = elemento.className.split(" ");
@@ -396,4 +379,73 @@ function delClass(id, classe) {
     classes.splice(getIndex, 1);
   }
   elemento.className = classes.join(" ");
+}
+
+function iniciarJogo() {
+  if (gameOver) {
+    addClass("win-lose", "ocultar");
+  } else {
+    addClass("splash", "ocultar");
+  }
+  ajustes();
+  delClass("container", "ocultar");
+  intervalID = window.setInterval(gameOverForca, 10);
+}
+
+function ajustes() {
+  gameOver = false;
+  tentativas = 0;
+  rightletter = [];
+  wrongletter = [];
+  mensagem = "";
+  categoria_dicas = sorteio("dicas");
+  palavra = sorteio("palavra");
+  secretWord = sorteio("secreta");
+  tip = dicas[categoria_dicas];
+  tipText.innerHTML = "Dica: " + tip;
+  lenSecretWord = secretWord.length;
+  tamLetrasErradas(lenSecretWord);
+  limpezaCamposeBtns();
+}
+
+function sorteio(tipoSorteio) {
+  switch (tipoSorteio) {
+    case "dicas":
+      return Math.floor(Math.random() * (categorias.length + 1));
+    // break;
+
+    case "palavra":
+      return Math.floor(
+        Math.random() * (palavras[categorias[categoria_dicas]].length + 1)
+      );
+    // break;
+
+    case "secreta":
+      return palavras[categorias[categoria_dicas]][palavra];
+    // break;
+  }
+}
+
+function tamLetrasErradas(tamSecretWord) {
+  const eraseSpace = 9 - tamSecretWord;
+  if (eraseSpace > 0) {
+    for (let i = tamSecretWord + 1; i <= 9; i++) {
+      addClass("cps" + i, "ocultar");
+    }
+  }
+}
+
+function limpezaCamposeBtns() {
+  for (let i = 1; i <= 9; i++) {
+    const posLetter = document.getElementById("cps" + i);
+    posLetter.innerHTML = "";
+    if (i <= 6) {
+      const posLetter = document.getElementById("cpse" + i);
+      posLetter.innerHTML = "";
+    }
+  }
+  for (let i = 65; i <= 90; i++) {
+    delClass(String(i), "corErrada");
+    delClass(String(i), "corCerta");
+  }
 }

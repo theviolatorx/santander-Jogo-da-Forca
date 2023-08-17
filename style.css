@@ -20,8 +20,64 @@ Professora Jaque
     --width-button: 74px;
     --height-button: 40px;
     --space-line-keys: 20px;
-    background-color:azure;
+    background-color: azure;
 
+}
+header {
+    justify-content: center;
+    align-items: center; 
+
+}
+.win-lose {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+}
+
+.win-lose>h1{
+    margin-top: 40px;
+    font-size: 4rem;
+}
+
+.win-lose>p{
+    margin-top: 100px;
+}
+
+.start-game {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    /* margin: 0; */
+    padding: 0;
+    background-color: azure;
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid;
+    z-index: 2;
+}
+
+.start-game>p {
+    margin-top: 80px;
+    color: #000;
+}
+
+
+.start-game>h1{
+    font-size: 4rem;
+}
+
+.titulo-do-jogo {
+    font-family: 'Press Start 2P', cursive;
+    background-image: linear-gradient(to bottom, rebeccapurple, steelblue, turquoise);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .forca {
@@ -33,17 +89,20 @@ Professora Jaque
     stroke: rebeccapurple;
     stroke-width: 4px;
     stroke-linecap: round;
+    border: 1px solid;
 }
+
 .jogo-container {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-  }
+}
+
 .forca-parte {
     display: none;
     stroke: rgb(255, 0, 179);
-  }
-  
+}
+
 .containerTexto {
     display: flex;
     flex-direction: column;
@@ -54,7 +113,7 @@ Professora Jaque
     align-items: center;
 }
 
-.containerTexto > h1 {
+.containerTexto>h1 {
     font-size: 3rem;
     margin-top: 10px;
     font-family: 'Press Start 2P', cursive;
@@ -65,7 +124,7 @@ Professora Jaque
 
 }
 
-.containerTexto > h3 {
+.containerTexto>h3 {
     font-size: 1.8rem;
     margin-top: 80px;
     font-family: 'Archivo Black', sans-serif;
@@ -79,6 +138,7 @@ Professora Jaque
     min-height: calc(var(--height-button) + 24px);
     font-family: 'Roboto', sans-serif;
 }
+
 .letrasErradas {
     display: flex;
     margin-top: 23px;
@@ -86,6 +146,7 @@ Professora Jaque
     gap: 5px;
     font-family: 'Roboto', sans-serif;
 }
+
 .palavraSecreta {
     display: flex;
     margin-top: 324px;
@@ -96,7 +157,15 @@ Professora Jaque
     font-family: 'Roboto', sans-serif;
 }
 
-.cpse1, .cpse2, .cpse3, .cpse4, .cpse5, .cpse6, .cpse7, .cpse8, .cpse9 {
+.cpse1,
+.cpse2,
+.cpse3,
+.cpse4,
+.cpse5,
+.cpse6,
+.cpse7,
+.cpse8,
+.cpse9 {
     position: relative;
     min-width: var(--width-button);
     max-height: var(--height-button);
@@ -105,7 +174,15 @@ Professora Jaque
     border: 1px solid;
 }
 
-.cps1, .cps2, .cps3, .cps4, .cps5, .cps6, .cps7, .cps8, .cps9 {
+.cps1,
+.cps2,
+.cps3,
+.cps4,
+.cps5,
+.cps6,
+.cps7,
+.cps8,
+.cps9 {
     position: relative;
     min-width: var(--width-button);
     max-height: var(--height-button);
@@ -116,7 +193,6 @@ Professora Jaque
 }
 
 /* 
-TODO: Ajustar a altura do teclado!
 TODO: Ajustar a centralização das teclas nas linhas
  */
 .teclado {
@@ -148,19 +224,28 @@ TODO: Ajustar a centralização das teclas nas linhas
     min-height: var(--height-button);
 }
 
-.teclas{
+.teclas {
     position: relative;
     width: var(--width-button);
     height: var(--height-button);
 }
-.ocultar, .forca-parte {
+
+.ocultar,
+.forca-parte {
     display: none;
 }
 
-.corCerta{
+.corCerta {
     background-color: #00d612;
 }
 
-.corErrada{
+.corErrada {
     background-color: #f32400;
+}
+
+@media (max-width: 680px) {
+    .start-game>p {
+        margin-top: 130px;
+        color: #fff;
+    }
 }
