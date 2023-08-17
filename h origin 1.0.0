@@ -1,0 +1,25 @@
+[33mtag 1.0.0[m
+Tagger: Clovis Garcia <theviolatorx@gmail.com>
+Date:   Thu Aug 17 12:01:24 2023 -0300
+
+Fist version
+
+[33mcommit 39046b558711b065ae7eb85a0f8dd4ce683aa0dd[m[33m ([m[1;36mHEAD -> [m[1;32mdeveloper[m[33m, [m[1;33mtag: 1.0.0[m[33m, [m[1;31morigin/developer[m[33m)[m
+Author: Clovis Garcia <theviolatorx@gmail.com>
+Date:   Thu Aug 17 01:52:32 2023 -0300
+
+    update css
+
+[1mdiff --git a/style.css b/style.css[m
+[1mindex 3df52d6..afc0aba 100644[m
+[1m--- a/style.css[m
+[1m+++ b/style.css[m
+[36m@@ -112,7 +112,7 @@[m [mProfessora Jaque[m
+     text-align: center;[m
+     font-size: 2rem;[m
+     border-bottom: 1px solid;[m
+[31m-    margin-left: 30px;[m
+[32m+[m[32m    margin-left: 20px;[m
+ }[m
+ [m
+ /* [m
