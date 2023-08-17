@@ -8,4 +8,4 @@
 - Clóvis Garcia
 
 # Você pode acessar o jogo aqui:
-https://www.clovisgarcia.com.br/santandercoders/forca/[https://www.clovisgarcia.com.br/santandercoders/forca/]
+https://www.clovisgarcia.com.br/santandercoders/forca/
