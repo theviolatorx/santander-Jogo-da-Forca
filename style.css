@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Sans+3&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@500&family=Source+Sans+3&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 /*  
 Jogo da Forca
 Projeto SantanderCoders - Logica de Programação <I>
@@ -17,6 +20,7 @@ Professora Jaque
     --width-button: 74px;
     --height-button: 40px;
     --space-line-keys: 20px;
+    background-color:azure;
 
 }
 
@@ -25,9 +29,8 @@ Professora Jaque
     margin-left: 53px;
     min-width: 327px;
     min-height: 335px;
-    background-color: #D9D9D9;
     fill: transparent;
-    stroke: #ea045d;
+    stroke: rebeccapurple;
     stroke-width: 4px;
     stroke-linecap: round;
 }
@@ -36,11 +39,15 @@ Professora Jaque
     justify-content: space-evenly;
     width: 100%;
   }
+.forca-parte {
+    display: none;
+    stroke: rgb(255, 0, 179);
+  }
   
 .containerTexto {
     display: flex;
     flex-direction: column;
-    margin-top: 29px;
+    margin-top: 40px;
     margin-left: 390px;
     min-width: 711px;
     min-height: 120px;
@@ -49,25 +56,35 @@ Professora Jaque
 
 .containerTexto > h1 {
     font-size: 3rem;
+    margin-top: 10px;
+    font-family: 'Press Start 2P', cursive;
+    background-image: linear-gradient(to bottom, rebeccapurple, steelblue, turquoise);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }
 
 .containerTexto > h3 {
     font-size: 1.8rem;
-    margin-top: 60px;
+    margin-top: 80px;
+    font-family: 'Archivo Black', sans-serif;
 }
 
 .containerLetrasErradas {
     display: flex;
     margin-top: 224px;
-    margin-left: 390px;
+    margin-left: 435px;
     min-width: 711px;
     min-height: calc(var(--height-button) + 24px);
+    font-family: 'Roboto', sans-serif;
 }
 .letrasErradas {
     display: flex;
     margin-top: 23px;
     min-height: var(--height-button);
     gap: 5px;
+    font-family: 'Roboto', sans-serif;
 }
 .palavraSecreta {
     display: flex;
@@ -76,6 +93,7 @@ Professora Jaque
     min-width: 711px;
     min-height: var(--height-button);
     gap: 5px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .cpse1, .cpse2, .cpse3, .cpse4, .cpse5, .cpse6, .cpse7, .cpse8, .cpse9 {
@@ -93,7 +111,8 @@ Professora Jaque
     max-height: var(--height-button);
     text-align: center;
     font-size: 2rem;
-    border: 1px solid;
+    border-bottom: 1px solid;
+    margin-left: 30px;
 }
 
 /* 
@@ -102,7 +121,7 @@ TODO: Ajustar a centralização das teclas nas linhas
  */
 .teclado {
     margin-top: 400px;
-    margin-left: 279px;
+    margin-left: 397px;
     min-width: 779px;
     min-height: 198px;
     border: 0;
@@ -139,9 +158,9 @@ TODO: Ajustar a centralização das teclas nas linhas
 }
 
 .corCerta{
-    background-color: #5353ff;
+    background-color: #00d612;
 }
 
 .corErrada{
-    background-color: #ff6347;
+    background-color: #f32400;
 }
