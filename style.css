@@ -36,9 +36,6 @@ Professora Jaque
     justify-content: space-evenly;
     width: 100%;
   }
-.forca-parte {
-    display: none;
-  }
   
 .containerTexto {
     display: flex;
@@ -137,7 +134,7 @@ TODO: Ajustar a centralização das teclas nas linhas
     width: var(--width-button);
     height: var(--height-button);
 }
-.ocultar{
+.ocultar, .forca-parte {
     display: none;
 }
 
