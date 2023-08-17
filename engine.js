@@ -37,11 +37,7 @@ const dicas = [
   "Cidades do litorial Sul de São Paulo",
   "Linguagens de programação antigas",
   "Animais quadrupedes domesticados",
-<<<<<<< HEAD
   "Ossos que formam a caixa craniana",
-=======
-  "Ossos que foram a caixa craniana",
->>>>>>> 11abd7a0bcf981a405225a144aba0132f73544ae
   "Profissãos Perigosas e Insalubres",
   "As maiores vendedoras de celular no Brasil",
   "Frutas da região Nordeste do Brasil",
