@@ -1,0 +1,109 @@
+<!-- Jogo da Forca
+Projeto SantanderCoders - Logica de Programação <I>
+Professora Jaque -->
+</I>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <!-- Forca -->
+        <section class="jogo-container">
+            <div class="forca-container"">
+                <svg height="250" width="200" class="forca">
+                <!-- forca -->
+                <line x1="60" y1="20" x2="140" y2="20" />
+                <line x1="140" y1="20" x2="140" y2="50" />
+                <line x1="60" y1="20" x2="60" y2="230" />
+                <line x1="20" y1="230" x2="100" y2="230" />
+      
+                <!-- cabeça -->
+                <circle cx="140" cy="70" r="20" class="forca-parte" />
+                <!-- corpo -->
+                <line x1="140" y1="90" x2="140" y2="150" class="forca-parte" />
+                <!-- braços -->
+                <line x1="140" y1="120" x2="120" y2="100" class="forca-parte" />
+                <line x1="140" y1="120" x2="160" y2="100" class="forca-parte" />
+                <!-- pernas -->
+                <line x1="140" y1="150" x2="120" y2="180" class="forca-parte" />
+                <line x1="140" y1="150" x2="160" y2="180" class="forca-parte" />
+              </svg>
+            </div>
+        </section>
+        <section class="containerTexto">
+            <h1>JOGO DA FORCA</h1>
+            <h3 id="tips"></h3>
+        </section>
+
+        <!-- Letras Erradas -->
+        
+        <section class="containerLetrasErradas">
+            <h4>Letras Erradas</h4>
+            <div class="letrasErradas">
+                <p id="cpse1" class="cpse1"></p>
+                <P id="cpse2" class="cpse2"></P>
+                <P id="cpse3" class="cpse3"></P>
+                <P id="cpse4" class="cpse4"></P>
+                <P id="cpse5" class="cpse5"></P>
+                <P id="cpse6" class="cpse6"></P>
+            </div>
+        </section>
+
+        <!-- Palavra Secreta -->
+        <section class="palavraSecreta">
+            <p id="cps1" class="cps1"></p>
+            <P id="cps2" class="cps2"></P>
+            <P id="cps3" class="cps3"></P>
+            <P id="cps4" class="cps4"></P>
+            <P id="cps5" class="cps5"></P>
+            <P id="cps6" class="cps6"></P>
+            <P id="cps7" class="cps7"></P>
+            <P id="cps8" class="cps8"></P>
+            <P id="cps9" class="cps9"></P>
+        </section>
+
+        <!-- Telcado  -->
+        <section id="teclado" class="teclado">
+            <article class="teclasLinha0">
+                <button id="81" class="teclas">Q</button>
+                <button id="87" class="teclas">W</button>
+                <button id="69" class="teclas">E</button>
+                <button id="82" class="teclas">R</button>
+                <button id="84" class="teclas">T</button>
+                <button id="89" class="teclas">Y</button>
+                <button id="85" class="teclas">U</button>
+                <button id="73" class="teclas">I</button>
+                <button id="79" class="teclas">O</button>
+                <button id="80" class="teclas">P</button>
+            </article>
+            <article class="teclasLinha1">
+                <button id="65" class="teclas">A</button>
+                <button id="83" class="teclas">S</button>
+                <button id="68" class="teclas">D</button>
+                <button id="70" class="teclas">F</button>
+                <button id="71" class="teclas">G</button>
+                <button id="72" class="teclas">H</button>
+                <button id="74" class="teclas">J</button>
+                <button id="75" class="teclas">K</button>
+                <button id="76" class="teclas">L</button>
+            </article>
+            <article class="teclasLinha2">
+                <button id="90" class="teclas">Z</button>
+                <button id="88" class="teclas">X</button>
+                <button id="67" class="teclas">C</button>
+                <button id="86" class="teclas">V</button>
+                <button id="66" class="teclas">B</button>
+                <button id="78" class="teclas">N</button>
+                <button id="77" class="teclas">M</button>
+            </article>
+        </section>
+
+    </main>
+    <script type="text/javascript" src="engine.js"></script>
+</body>
+</html>
