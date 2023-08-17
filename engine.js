@@ -34,8 +34,8 @@ const categorias = [
   "MEIOS DE TRANSPORTES"
 ];
 const dicas = [
-  "Cidades do litorial Sul de São Paulo",
-  "Linguagens de programação antigas",
+  "Cidades do litorial Sul de São Paulo com praias",
+  "Linguagens de programação antiga",
   "Animais quadrupedes domesticados",
   "Ossos que formam a caixa craniana",
   "Profissãos Perigosas e Insalubres",
