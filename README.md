@@ -3,6 +3,7 @@
 ## Equipe:
 - Thalita Oliveira
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Clóvis Garcia
 =======
 - Clóvis Garcia
@@ -64,3 +65,6 @@ FORMATO DE ENTREGA:
 - O trabalho deverá ser apresentado em um tempo de 10 minutos, considerando: como foi dividido e dificuldades encontradas alem do seu funcionamento.
 
 * Créditos: [Ionar](https://github.com/ionar)
+=======
+- Clóvis Garcia
+>>>>>>> 16f382a (Update README.md)
