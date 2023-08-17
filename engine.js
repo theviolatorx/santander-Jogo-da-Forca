@@ -216,21 +216,25 @@ function keyPressOrclick(evento) {
         addClass(keyPressClick,"corCerta");
         gameOver = acertou(secretWord, rightletter);
       }
-    } else {
-      // Verifica se a letra errada esta inclusa na relação de palabras erradas.
-      // Caso já esteja, não adiciona novamente a mesma letra.
+    }  else {
       if (!wrongletter.includes(letra)) {
-        // Caso a letra não esteja na lista de palavras erradas,
-        // a mesma é adicionada.
+        wrongletter.push(letra);
+
+        // Aciona a exibição das partes da forca aqui
+        if (wrongletter.length <= 6) {
+          const forcaParts = document.getElementsByClassName("forca-parte");
+          const hangingPart = forcaParts[wrongletter.length - 1];
+          hangingPart.style.display = "block";
+        }
+
         gameOver = errou(tentativas);
         showWrongWord(letra);
-        addClass(keyPressClick,"corErrada");
-        wrongletter.push(letra);
+        addClass(keyPressClick, "corErrada");
       }
     }
   }
-  // gameOverForca();
 }
+  // gameOverForca();
 
 /*
 * Retorna verdadeiro se o caracter pressionado é um código entre a letra A e a letra Z.

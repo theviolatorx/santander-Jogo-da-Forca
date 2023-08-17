@@ -26,8 +26,20 @@ Professora Jaque
     min-width: 327px;
     min-height: 335px;
     background-color: #D9D9D9;
+    fill: transparent;
+    stroke: #ea045d;
+    stroke-width: 4px;
+    stroke-linecap: round;
 }
-
+.jogo-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+.forca-parte {
+    display: none;
+  }
+  
 .containerTexto {
     display: flex;
     flex-direction: column;
