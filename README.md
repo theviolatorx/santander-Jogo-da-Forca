@@ -7,4 +7,5 @@
 =======
 - Clóvis Garcia
 
->>>>>>> 1f8538a (Update README.md)
+# Você pode acessar o jogo aqui:
+https://www.clovisgarcia.com.br/santandercoders/forca/[https://www.clovisgarcia.com.br/santandercoders/forca/]
