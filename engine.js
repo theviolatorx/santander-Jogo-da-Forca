@@ -46,9 +46,9 @@ const dicas = [
 ];
 const palavras = {
   CIDADES: [
-    "SANTOS", 
-    "PERUIBE", 
-    "MONGAGUA", 
+    "SANTOS",
+    "PERUIBE",
+    "MONGAGUA",
     "ITANHAEM",
   ],
   LINGUAGENS: [
@@ -62,10 +62,10 @@ const palavras = {
     "AUTOCODE",
   ],
   ANIMAIS: [
-    "CACHORRO", 
-    "GATO", 
-    "CAVALO", 
-    "OVELHA", 
+    "CACHORRO",
+    "GATO",
+    "CAVALO",
+    "OVELHA",
     "PORCO",
   ],
   CRANIANA: [
@@ -213,20 +213,25 @@ function keyPressOrclick(evento) {
         // a mesma é adicionada.
         rightletter.push(letra);
         showRightWord(secretWord, letra);
-        addClass(keyPressClick,"corCerta");
+        addClass(keyPressClick, "corCerta");
         gameOver = acertou(secretWord, rightletter);
       }
-    }  else {
+    } else {
       if (!wrongletter.includes(letra)) {
         wrongletter.push(letra);
 
         // Aciona a exibição das partes da forca aqui
         if (wrongletter.length <= 6) {
+          // Seleciona todos os elementos com a classe CSS "forca-parte"
           const forcaParts = document.getElementsByClassName("forca-parte");
+
+          // Obtém a parte da forca correspondente ao número de letras erradas
+          // Subtrai 1 porque os índices de array começam em 0
           const hangingPart = forcaParts[wrongletter.length - 1];
+
+          // Torna a parte da forca visível definindo o estilo "display" como "block"
           hangingPart.style.display = "block";
         }
-
         gameOver = errou(tentativas);
         showWrongWord(letra);
         addClass(keyPressClick, "corErrada");
@@ -234,7 +239,7 @@ function keyPressOrclick(evento) {
     }
   }
 }
-  // gameOverForca();
+// gameOverForca();
 
 /*
 * Retorna verdadeiro se o caracter pressionado é um código entre a letra A e a letra Z.
