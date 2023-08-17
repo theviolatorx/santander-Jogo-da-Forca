@@ -8,6 +8,7 @@
 =======
 - Clóvis Garcia
 
+<<<<<<< HEAD
 # Projeto Jogo da Forca
 ## Santander Coders 2023 - Lógica de Programação I
 ## Equipe:
@@ -68,3 +69,7 @@ FORMATO DE ENTREGA:
 =======
 - Clóvis Garcia
 >>>>>>> 16f382a (Update README.md)
+=======
+# Você pode acessar o jogo aqui:
+https://www.clovisgarcia.com.br/santandercoders/forca/
+>>>>>>> 8b773ae (Update README.md)
