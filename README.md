@@ -10,6 +10,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a0f9f3d (update README)
 # Projeto Jogo da Forca
 ## Santander Coders 2023 - Lógica de Programação I
 ## Equipe:
@@ -66,6 +69,7 @@ FORMATO DE ENTREGA:
 - Entregar em um repositório apartado de qualquer aula no github.
 - O trabalho deverá ser apresentado em um tempo de 10 minutos, considerando: como foi dividido e dificuldades encontradas alem do seu funcionamento.
 
+<<<<<<< HEAD
 * Créditos: [Ionar](https://github.com/ionar)
 =======
 - Clóvis Garcia
@@ -76,3 +80,6 @@ https://www.clovisgarcia.com.br/santandercoders/forca/
 >>>>>>> 8b773ae (Update README.md)
 =======
 >>>>>>> 1f8538a (Update README.md)
+=======
+* Créditos: [Ionar](https://github.com/ionar)
+>>>>>>> a0f9f3d (update README)
