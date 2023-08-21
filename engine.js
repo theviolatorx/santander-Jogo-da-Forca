@@ -161,15 +161,17 @@ const palavras = {
   ],
 };
 
-const categoria_dicas = Math.floor(Math.random() * (categorias.length + 1));
+const categoria_dicas = Math.floor(Math.random() * (categorias.length));
 const palavra = Math.floor(
-  Math.random() * (palavras[categorias[categoria_dicas]].length + 1)
+  Math.random() * (palavras[categorias[categoria_dicas]].length)
 );
 
 const secretWord = palavras[categorias[categoria_dicas]][palavra];
+console.log(`Palavra secreta: ${secretWord}`);
 const tip = dicas[categoria_dicas];
 
 tipText.innerHTML = "Dica: " + tip;
+
 
 const lenSecretWord = secretWord.length;
 
