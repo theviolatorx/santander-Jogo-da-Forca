@@ -2,30 +2,6 @@
 # Projeto Jogo da Forca
 ## Santander Coders 2023 - Lógica de Programação I
 ## Equipe:
-- Thalita Oliveira
-<<<<<<< HEAD
-- Clóvis Garcia
-=======
-- Clóvis Garcia
-
-# Projeto Jogo da Forca
-## Santander Coders 2023 - Lógica de Programação I
-## Equipe:
-- Thalita Oliveira
-<<<<<<< HEAD
-<<<<<<< HEAD
-- Clóvis Garcia
-=======
-- Clóvis Garcia
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a0f9f3d (update README)
-# Projeto Jogo da Forca
-## Santander Coders 2023 - Lógica de Programação I
-## Equipe:
 - Thalia Oliveira
 - Clóvis Garcia 
 
