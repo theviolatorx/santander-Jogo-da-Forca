@@ -2,6 +2,7 @@
 *.rar
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 h origin 1.0.*
 foto-tela-01.jpg
 =======
@@ -10,3 +11,7 @@ h*
 =======
 h*
 >>>>>>> 602918b (update gitignore)
+=======
+h origin 1.0.*
+foto-tela-01.jpg
+>>>>>>> 5d85421 (update gitignore)
