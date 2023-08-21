@@ -247,7 +247,6 @@ function showRightWord(array, letter) {
   array.forEach(function (element, index, array) {
     if (element === letter) {
       const posLetter = document.getElementById("cps" + (index + 1));
-      console.log(letter);
       posLetter.innerHTML = letter;
     }
   });
@@ -333,7 +332,6 @@ function acertou(array1, array2) {
  */
 function errou() {
   tentativas++;
-  console.log(`Errou: ${tentativas}`);
   if (tentativas >= 6) {
     return true;
   }
