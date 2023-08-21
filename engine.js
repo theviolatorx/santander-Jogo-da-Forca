@@ -1,7 +1,7 @@
 /*
 {
   Programa: "Jogo da Força",
-  Versao: "1.0.0"
+  Versao: "2.0.0"
   Desenvolvedor: [
     "Thalia",
     "Clóvis",
