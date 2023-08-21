@@ -39,12 +39,13 @@ header {
 }
 
 .win-lose>h1{
-    margin-top: 40px;
+    margin-top: 200px;
     font-size: 4rem;
 }
 
 .win-lose>p{
-    margin-top: 100px;
+    margin-top: 300px;
+    font-size: 3rem;
 }
 
 .start-game {
@@ -92,7 +93,7 @@ header {
     border: 1px solid;
 }
 
-.jogo-container {
+.jogo-container, .jogo-container1 {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
@@ -192,9 +193,6 @@ header {
     margin-left: 20px;
 }
 
-/* 
-TODO: Ajustar a centralização das teclas nas linhas
- */
 .teclado {
     margin-top: 400px;
     margin-left: 397px;
@@ -212,6 +210,7 @@ TODO: Ajustar a centralização das teclas nas linhas
 
 .teclasLinha1 {
     position: relative;
+    margin-left: var(--height-button);
     margin-top: var(--space-line-keys);
     min-width: 779px;
     min-height: var(--height-button);
@@ -219,6 +218,7 @@ TODO: Ajustar a centralização das teclas nas linhas
 
 .teclasLinha2 {
     position: relative;
+    margin-left: calc(var(--height-button)*3);
     margin-top: var(--space-line-keys);
     min-width: 779px;
     min-height: var(--height-button);

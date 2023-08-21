@@ -247,6 +247,7 @@ function showRightWord(array, letter) {
   array.forEach(function (element, index, array) {
     if (element === letter) {
       const posLetter = document.getElementById("cps" + (index + 1));
+      console.log(letter);
       posLetter.innerHTML = letter;
     }
   });
