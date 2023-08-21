@@ -31,6 +31,8 @@ let tip;
 let lenSecretWord;
 let mensagem;
 let intervalID;
+let forcaPartsClean;
+let hangingPartClean;
 
 // Palavra secreta
 const categorias = [
@@ -446,5 +448,11 @@ function limpezaCamposeBtns() {
   for (let i = 65; i <= 90; i++) {
     delClass(String(i), "corErrada");
     delClass(String(i), "corCerta");
+  }
+  // TODO: Melhorar essa código e colocar em uma função. Alterar do iníco também
+  forcaPartsClean = document.getElementsByClassName("forca-parte");
+  for (let i = 0; i < 6; i++){
+    hangingPartClean = forcaPartsClean[i];
+    hangingPartClean.style.display = "none";
   }
 }
