@@ -412,12 +412,12 @@ function ajustes() {
 function sorteio(tipoSorteio) {
   switch (tipoSorteio) {
     case "dicas":
-      return Math.floor(Math.random() * (categorias.length + 1));
+      return Math.floor(Math.random() * (categorias.length));
     // break;
 
     case "palavra":
       return Math.floor(
-        Math.random() * (palavras[categorias[categoria_dicas]].length + 1)
+        Math.random() * (palavras[categorias[categoria_dicas]].length)
       );
     // break;
 
