@@ -167,7 +167,6 @@ const palavra = Math.floor(
 );
 
 const secretWord = palavras[categorias[categoria_dicas]][palavra];
-console.log(`Palavra secreta: ${secretWord}`);
 const tip = dicas[categoria_dicas];
 
 tipText.innerHTML = "Dica: " + tip;
