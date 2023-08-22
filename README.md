@@ -2,7 +2,7 @@
 # Projeto Jogo da Forca
 ## Santander Coders 2023 - Lógica de Programação I
 ## Equipe:
-- Thalia Oliveira
+- [Thalia Oliveira](https://github.com/userThaliaoliveira)
 - [Clóvis Garcia](https://github.com/theviolatorx)
 
 # Programa Santander Coders 2023 by ADA
