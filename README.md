@@ -3,7 +3,7 @@
 ## Santander Coders 2023 - Lógica de Programação I
 ## Equipe:
 - Thalia Oliveira
-- Clóvis Garcia 
+- (Clóvis Garcia)[https://github.com/theviolatorx]
 
 # Programa Santander Coders 2023 by ADA
 
