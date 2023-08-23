@@ -63,7 +63,7 @@ header {
     z-index: 2;
 }
 
-.start-game>p {
+.start-game > p {
     margin-top: 80px;
     color: #000;
 }
@@ -114,7 +114,7 @@ header {
     align-items: center;
 }
 
-.containerTexto>h1 {
+.containerTexto > h1 {
     font-size: 3rem;
     margin-top: 10px;
     font-family: 'Press Start 2P', cursive;
@@ -125,7 +125,7 @@ header {
 
 }
 
-.containerTexto>h3 {
+.containerTexto > h3 {
     font-size: 1.8rem;
     margin-top: 80px;
     font-family: 'Archivo Black', sans-serif;
